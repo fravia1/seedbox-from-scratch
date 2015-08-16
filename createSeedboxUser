@@ -636,7 +636,7 @@ echo "Transdroid tutorial: http://cheapseedboxes.com/transdroid-setup-cheapseedb
 echo "VPN setup tutorial: http://cheapseedboxes.com/vpn-seedbox/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 
 echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "IF you have any further questions you can catch us at Online Chat/ Raise a ticket on your client area/ Send a mail at admin@cheapseedboxes.com" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "IF you have any further questions you can catch us at Online Chat/ Raise a ticket on your client area" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 
 
 cp /etc/seedbox-from-scratch/users/$NEWUSER1.info $HOMEJAILED1/$NEWUSER1.info
