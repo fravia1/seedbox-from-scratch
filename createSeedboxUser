@@ -585,41 +585,12 @@ sudo chown -R $NEWUSER1:$NEWUSER1  $HOMEJAILED1/.irssi
 echo "https://$IPADDRESS1/seedboxInfo.php" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 
 echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Dear User," | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Your Seedbox Is ready Please find the Login details Below:" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "User personal info" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "-------------------" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "Username: $NEWUSER1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "Password: $PASSWORD1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "RPC: $NEWRPC1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "IRSSI Password: $IRSSIPASSWORD1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "SSH: $USERHASSSHACCESS1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Sudo powers: $USERINSUDOERS1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Jailed: $CHROOTJAIL1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-
-echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Directories" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "-----" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Home base: $HOMEBASE1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Home dir: $HOMEDIR1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Home jail: $HOMEJAILED1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Jail dir: $JAILDIR1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-
-echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Ports" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "-----" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "SSH port: $NEWSSHPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "SFTP port: $NEWSSHPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "vsftp port: $NEWFTPPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "IRSSI Port: $IRSSIPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "SCGI Port: $SCGIPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "RTorrent network port: $NETWORKPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-if [ -f /etc/seedbox-from-scratch/sabnzbd/SABnzbd.py ]; then
-  echo "SABNZBD HTTPS port: $SABNZBDHTTPSPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-  echo "SABNZBD HTTP port: $SABNZBDHTTPPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-fi
-if [ "$DELUGEINSTALLED1" == "YES" ]; then
-  echo "Deluge daemon port: $DEAMONPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-  echo "Deluge web port: $WEBPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-fi
 
 echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "Links" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
@@ -629,7 +600,6 @@ if [ -f /etc/seedbox-from-scratch/sabnzbd/SABnzbd.py ]; then
 fi
 echo "ruTorrent: http://$IPADDRESS1/rutorrent/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "ruTorrent: https://$IPADDRESS1/rutorrent/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Webmin: https://$IPADDRESS1:10000" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "FTP: ftp://$IPADDRESS1:$NEWFTPPORT1/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 if [ -f /etc/seedbox-from-scratch/rapidleech.info ]; then
   echo "Rapidleech: https://$IPADDRESS1/rapidleech" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
@@ -639,14 +609,35 @@ if [ "$DELUGEINSTALLED1" == "YES" ]; then
 fi
 echo "OpenVPN config: https://$IPADDRESS1/rutorrent/vpn.zip" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 
+
 echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Starting and restartring commands" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Ports" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "-----" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "SFTP port: $NEWSSHPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "FTP port: $NEWFTPPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+if [ -f /etc/seedbox-from-scratch/sabnzbd/SABnzbd.py ]; then
+  echo "SABNZBD HTTPS port: $SABNZBDHTTPSPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+  echo "SABNZBD HTTP port: $SABNZBDHTTPPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+fi
+if [ "$DELUGEINSTALLED1" == "YES" ]; then
+  echo "Deluge daemon port: $DEAMONPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+  echo "Deluge web port: $WEBPORT1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+fi
+
+
+echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Basic Guides" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
 echo "---------------------------------" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Restarting seedbox logged as $NEWUSER1: $HOMEJAILED1/restartSeedbox" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Restarting seedbox as any other user: sudo su --login --command \"$HOMEJAILED1/restartSeedbox\" $NEWUSER1" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Starting RTorrent: screen -d -m -S rtorrent rtorrent" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Starting IRSSI: screen -d -m -S irssi irssi" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
-echo "Starting sabnzbdplus: screen -dmS sabnzbd sabnzbdplus" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Knowledgebase: http://cheapseedboxes.com/tutorials/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "For rutorrent tutorial : http://cheapseedboxes.com/rutorrent-seedbox-guide/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "For FTP basic tutorial to transfer files from seedbox: http://cheapseedboxes.com/ftp-files-seedbox/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "If you are facing slow ftp speed : http://cheapseedboxes.com/seedbox-fast-transfers-pc/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "Transdroid tutorial: http://cheapseedboxes.com/transdroid-setup-cheapseedboxes/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "VPN setup tutorial: http://cheapseedboxes.com/vpn-seedbox/" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+
+echo "" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+echo "IF you have any further questions you can catch us at Online Chat/ Raise a ticket on your client area/ Send a mail at admin@cheapseedboxes.com" | sudo tee -a /etc/seedbox-from-scratch/users/$NEWUSER1.info
+
 
 cp /etc/seedbox-from-scratch/users/$NEWUSER1.info $HOMEJAILED1/$NEWUSER1.info
 sudo chown $NEWUSER1: $HOMEJAILED1/$NEWUSER1.info
